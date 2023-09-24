@@ -1,0 +1,6 @@
+com\repaso2\RepasoApplication.class
+com\repaso2\service\mascotaIService.class
+com\repaso2\service\mascotaService.class
+com\repaso2\repository\mascotaRep.class
+com\repaso2\model\Mascota.class
+com\repaso2\controller\controller.class
