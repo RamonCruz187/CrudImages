@@ -3,7 +3,6 @@ package com.repaso2.controller;
 
 import com.repaso2.model.Mascota;
 import com.repaso2.service.mascotaIService;
-import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
