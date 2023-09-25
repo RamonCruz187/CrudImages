@@ -53,7 +53,8 @@ public class controller {
             mascota.setEdad(edad);
             
             String fileName = StringUtils.cleanPath(imagen.getOriginalFilename());
-            Path uploadPath = Paths.get("C://temp/uploads"); // Reemplaza con la ruta deseada
+            Path uploadPath = Paths.get("src/main/resources/static"); // Reemplaza con la ruta deseada
+            String rutaAbsoluta = uploadPath.toFile().getAbsolutePath();
             if (!Files.exists(uploadPath)) {
                 Files.createDirectories(uploadPath);
             }
@@ -61,7 +62,7 @@ public class controller {
             try (InputStream inputStream = imagen.getInputStream()) {
                 Path filePath = uploadPath.resolve(fileName);
                 Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-                mascota.setImagen(filePath.toString());
+                mascota.setImagen(rutaAbsoluta+"//"+imagen.getOriginalFilename());
             }
  
             mserv.nuevaMascota(mascota);
@@ -78,6 +79,9 @@ public class controller {
     public List <Mascota> verMascotas(){
         return mserv.verMascotas();
     }
+    
+    
+    
     
     @DeleteMapping ("/borrar/mascota/{id}")
     public void eliminarMascota(@PathVariable Long id){
